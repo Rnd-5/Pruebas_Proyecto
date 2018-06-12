@@ -16,7 +16,7 @@ img{
 	width: 100%
 }
 #navbar{
-	background-color: #000;
+	background-color: #424949;
 	position: absolute;
 	left: 0;
 	text: 0;
@@ -24,6 +24,7 @@ img{
 	width: 100%;
 	z-index: 100;
 	overflow: hidden;
+
 }
 #navbar ul{
 	list-style-type: none;
@@ -45,14 +46,18 @@ img{
 	color: aliceblue;
 }
 #navbar li a:hover{
-	background-color: coral;
-	color: black;	
+	background-color: #7dcea0;
+	color: #424949;
 }
 .myicono{
-	color: aliceblue;
+	color: #7dcea0;
 	font-size: 1.5em;
 	padding: 10px;
 	display: none;
+}
+.myicono:hover{
+	color: #424949;
+	background-color: #7dcea0; 
 }
 #content{
 	max-width: 1180px;

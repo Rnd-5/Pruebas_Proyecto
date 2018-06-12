@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
 	<style>body{padding-top: 60px;}</style>
     <style>
         html {
@@ -29,132 +28,118 @@
 <body>
     <div class="container">
         <div class="modal-dialog login animated" id="loginModal">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="modal-body">  
-                            <div class="box">
-                                <div class="content">
-                                    <div class="form loginBox">
-                                        <form method="post" action="/login" accept-charset="UTF-8">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-body">  
+                        <div class="box">
+                            <div class="content">
+                                <div class="form loginBox">
+                                    <form method="post" action="/login" accept-charset="UTF-8">
                                         <input id="email" class="form-control" type="text" placeholder="Email" name="email">
                                         <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
-                                        <input class="btn btn-default btn-login" type="button"  value="Iniciar sesion" onclick=" location='Vista_Perfil.html'">
-                                        </form>
+                                        <input class="btn btn-default btn-login" type="button"  value="Iniciar sesion" onclick=" location='Pag_Inicio.html'">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="content registerBox" style="display:none;">
+                            <div class="form">
+                                    <!--
+                                    <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                                        <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre">
+                                        <input id="apellido" class="form-control" type="text" placeholder="Apellido" name="apellido">
+                                        <input id="edad" class="form-control" type="text" placeholder="Edad" name="edad">
+                                        <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                        <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
+                                        <input id="password_confirmation" class="form-control" type="password" placeholder="Repita su contraseña" name="password_confirmation">
+                                        <input class="btn btn-default btn-register" type="submit" value="Crear cuenta" name="commit">
+                                    </form>
+                                    -->
+                                <h2 id="tituloRegistro">Registrarse como:</h2>
+                                <hr>
+                                <a class="btn btn-primary btn-Solicitante" href="javascript: showRegisterForm_Solicitante();">Solicitante</a>
+                                <!--<hr>-->
+                                <a class="btn btn-primary btn-Empleador" href="javascript: showRegisterForm_Empleador();" role="button">Empleador</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <!--REGISTRO DEL SOLICITANTE-->
+                        <div class="content registroSoliciante" style="display: none;">
+                            <div class="form">
+                                <form action="" method="POST" role="form">
+                                    <!--<legend>Regitro de solicitantes</legend>-->
+                                    <h2 id="tituloRegS">Registro de solicitantes</h2>
+                                    <hr>
+                                    <div class="form-group">
+                                        <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre" title="Ingrese su nombre">
+                                        <input id="apellido" class="form-control" type="text" placeholder="Apellido" name="apellido" title="Ingrese su apellido.">
+                                        <input type="date" name="" id="fechaNaci" class="form-control" value="" required="required" title="Ingrese su fecha de nacimeinto.">
+                                        <select name="sexo" id="genero" class="form-control Genero" required="required" title="Seleccione el genero correspondiente">
+                                            <option value="">Seleccionar</option>
+                                            <option value="">Masculino</option>
+                                            <option value="">Femenino</option>
+                                        </select>
+                                        <input id="email" class="form-control" type="email" placeholder="Email" name="email" required="required" title="Ingrese su email.">
+                                        <!--<input id="email" type="email" name="email" value="" placeholder="E-mail"> -->
+                                        <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" title="Ingrese una contraseña."required="required">
+                                        <input id="password_confirmation" class="form-control" type="password" placeholder="Repita su contraseña" name="password_confirmation" title="Confirme su contraseña"required="required">
+                                        <!--
+                                        <input class="btn btn-primary btn-register" type="submit" value="Crear cuenta" name="commit">
+                                        -->
                                     </div>
-                                </div>
+                                    <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+                                </form> <!--Registro de solicitantes -->
                             </div>
                         </div>
+                        <!--REGISTRO DEL EMPLEADOR-->
+                        <div class="content registroEmpleador" style="display: none;">
+                            <div class="form">
+                                <form action="" method="POST" role="form">
+                                    <!--<legend>Registro de empleador</legend>-->
+                                    <h2 id="tituloRegE">Registro de empleadores</h2>
+                                    <hr>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="nomEmpresa" placeholder="Nombre de la Empresa" title="Ingrese el nombre de la empresa.">
+                                        <input id="email" class="form-control" type="email" placeholder="Email" name="emailEmpresa" required="required" title="Ingrese el email de la empresa.">
+                                        
+                                        <input type="date" name="fechaEmpresa" id="inputFechaEmpresa" class="form-control" value="" required="required" title="Ingrese la fecha de constitucion de la empresa.">
 
-                        <div class="box">
-                            <div class="content registerBox" style="display:none;">
-                             <div class="form">
-                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                    <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre">
-                                    <input id="apellido" class="form-control" type="text" placeholder="Apellido" name="apellido">
-                                    <input id="edad" class="form-control" type="text" placeholder="Edad" name="edad">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
-                                    <input id="password_confirmation" class="form-control" type="password" placeholder="Repita su contraseña" name="password_confirmation">
-                                    <input class="btn btn-default btn-register" type="submit" value="Crear cuenta" name="commit">
+                                        <select name="tipoEmpresa" id="inputTipoEmpresa" class="form-control" required="required" title="Seleccione el tipo de empresa correspondiente.">
+                                            <option value="">Tipo de empresa</option>
+                                            <option value="" title="Empresa Individual de Responsabilidad Limitada.">E.I.R.L</option>
+                                            <option value="" title="Sociedad de Responsabilidad Limitada.">S.R.L</optio>
+                                            <option value="" title="Sociedad Anónima de Suscripción Privada">S.A</option>
+                                        </select>
+                                        <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" title="Ingrese una contraseña."required="required">
+                                        <input id="password_confirmation" class="form-control" type="password" placeholder="Repita su contraseña" name="password_confirmation" title="Confirme su contraseña"required="required">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
                                 </form>
-                                </div>
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <div class="forgot login-footer">
-                                <span>Necesitas 
-                                    <a href="javascript: showRegisterForm();">Crear una cuenta</a>
-                                    ?</span>
-                            </div>
-                            <div class="forgot register-footer" style="display:none">
-                                <span>Ya tienes una cuenta?</span>
-                                <a href="javascript: showLoginForm();">Iniciar sesion</a>
-                            </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Necesitas 
+                                <a href="javascript: showRegisterForm();">Crear una cuenta</a>
+                            ?</span>
+                        </div>
+                        <div class="forgot register-footer" style="display:none">
+                            <hr>
+                            <span>Ya tienes una cuenta?</span>
+                            <a href="javascript: showLoginForm();">Iniciar sesion</a>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-        
-        <!--
-        <div class="row">
-
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                 <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Iniciar sesion</a>
-                 <a class="btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Registrarse</a></div>
-            <div class="col-sm-4"></div>
         </div>
-         
-		 <div class="modal fade login" id="loginModal">
-		      <div class="modal-dialog login animated">
-    		      <div class="modal-content">
-    		         <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Login-with</h4>
-                    </div>
-                    <div class="modal-body">  
-                        <div class="box">
-                             <div class="content">
-                                
-                                <div class="social">
-                                    <a class="circle github" href="/auth/github">
-                                        <i class="fa fa-github fa-fw"></i>
-                                    </a>
-                                    <a id="google_login" class="circle google" href="/auth/google_oauth2">
-                                        <i class="fa fa-google-plus fa-fw"></i>
-                                    </a>
-                                    <a id="facebook_login" class="circle facebook" href="/authiii/facebook">
-                                        <i class="fa fa-facebook fa-fw"></i>
-                                    </a>
-                                
-                                </div>
-                                <div class="division">
-                                    <div class="line l"></div>
-                                      <span>or</span>
-                                    <div class="line r"></div>
-                                </div>
-                                
-                                <div class="error"></div>
-                                <div class="form loginBox">
-                                    <form method="post" action="/login" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
-                                    <input class="btn btn-default btn-login" type="button" value="Iniciar sesion" onclick="loginAjax()">
-                                    </form>
-                                </div>
-                             </div>
-                        </div>
-                        <div class="box">
-                            <div class="content registerBox" style="display:none;">
-                             <div class="form">
-                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repita su contraseña" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="submit" value="Crear cuenta" name="commit">
-                                </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="forgot login-footer">
-                            <span>Looking to 
-                                 <a href="javascript: showRegisterForm();">Crear una cuenta</a>
-                            ?</span>
-                        </div>
-                        <div class="forgot register-footer" style="display:none">
-                             <span>Ya tienes una cuenta?</span>
-                             <a href="javascript: showLoginForm();">Iniciar sesion</a>
-                        </div>
-                    </div>        
-    		      </div>
-		      </div>
-		  </div>
-    </div> -->
+    </div>
     <footer id="piePagina"><p align="center">Desarrollado por [ 2016-0918 / 2016-0988 ] ©2018</p></footer>
-
 </body>
 </html>
